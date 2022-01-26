@@ -8,13 +8,19 @@ from serializers import (
 )
 from models.applicant import Applicant
 
+#TODO: Add more custom queries here that the frontend can need
 # Put queries here for the GraphQL API
 class Query(graphene.ObjectType):
     say_hello = graphene.String(name=graphene.String(default_value="World"))
+    list_applicants = graphene.List(ApplicantGrapheneModel) # List of ALL applicants
 
     @staticmethod
     def resolve_say_hello(root, info, name):
         return f"Hello {name}!"
+    
+    @staticmethod
+    def resolve_list_applicants(root, info):
+        return Applicant.all()
 
 # Put mutations here for the GraphQL API
 class CreateApplicant(graphene.Mutation):

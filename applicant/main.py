@@ -1,7 +1,9 @@
 #******************************************************************************#
 # Main Driver Code Should Be Here                                              #
 #******************************************************************************#
+from imp import reload
 from fastapi import FastAPI
+import uvicorn
 import graphene
 import starlette
 from starlette.graphql import GraphQLApp
@@ -16,3 +18,6 @@ app.add_route('/graphql', GraphQLApp(schema=graphene.Schema(query=Query, mutatio
 @app.get("/")
 def ping():
     return {"ping": "pong!"}
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="localhost", port=8000, reload=True)

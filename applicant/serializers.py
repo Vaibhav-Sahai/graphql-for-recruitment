@@ -20,7 +20,7 @@ class ApplicantModel(BaseModel):
     second_minor: Optional[str]
     gpa: str
     website: Optional[str]
-    division: List[str]
+    division: str
     why_team: str
     commitment: str
     value_to_club: str
