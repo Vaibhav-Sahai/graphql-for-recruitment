@@ -1,3 +1,3 @@
 #******************************************************************************#
-# Return and Input Serializers for the Applicant API                           #
+# Return and Input Serializers for the Applicant API                           # 
 #******************************************************************************#
