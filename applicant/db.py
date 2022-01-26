@@ -1,6 +1,7 @@
 #*****************************#
 # Database Configuration File #
 #*****************************#
+import sched
 from orator import DatabaseManager, Schema, Model
 import os
 from dotenv import load_dotenv
@@ -33,3 +34,7 @@ DATABASES = {
         'prefix': ''
     }
 }
+
+db = DatabaseManager(DATABASES)
+schema = Schema(db)
+Model.set_connection_resolver(db)
