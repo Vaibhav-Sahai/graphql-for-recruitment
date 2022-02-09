@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  fastapi-database: 
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    env_file:
+      - ./applicant/.env
+    ports: 
+      - "8000:8000"
